@@ -1,10 +1,13 @@
-const element = document.querySelector("#add") as HTMLDivElement;
+let special = (s: string) => s.concat(" bleh");
 
-if (element.children[0]) {
-  let child = element.children[0];
-  child.innerHTML = "";
+let specialNorm = function(s: string) {
+  return +s;
+};
+
+function gen<T>(f: (l: string) => T): T {
+  return f("22");
 }
 
-let caller = <T>(func: () => T) => console.log(func());
+gen(special);
 
-caller(() => "hi");
+gen(specialNorm);

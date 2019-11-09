@@ -14,14 +14,23 @@ interface OldPerson extends Person {
 interface Superhero2 {
   name: string;
   age: number;
+  low: boolean;
+  sad: { a: string };
   power: string;
 }
 
-let hero: SuperHero = { name: 13, age: 1000, power: "Flying" };
+let hero: SuperHero = { name: "sdas", age: 1000, power: "Flying" };
 
 let hero2: Superhero2 = hero as Superhero2;
 
-function changePower(person: any) {
-  console.log(person.age, person.name);
+interface Cool {
+  low: boolean;
+  sad: { a: string };
 }
-changePower(hero);
+
+let z = (hero as any) as Cool;
+
+type weird = number | string;
+let a: weird = "£";
+
+a = 1;
